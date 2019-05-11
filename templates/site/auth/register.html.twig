@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="mx-auto flex justify-center items-center">
+        <div class="w-3/3">
+            <br><br><br>
+            <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
+                <form method="post">
+                    <input type="hidden" name="token" value="{{ csrf_token('app_register') }}">
+                    <div class="mb-4">
+                        <label class="font-bold text-grey-darker block mb-2">Username</label>
+                        <input type="text" name="username" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 mb-3 rounded shadow" placeholder="Your Username">
+                        {% for error in errors %}
+                            {% if error.propertyPath == 'username' %}
+                            <p class="text-red text-xs italic">{{ error.message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="font-bold text-grey-darker block mb-2">Email</label>
+                        <input type="text" name="email" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 mb-3 rounded shadow" placeholder="Your Username">
+                        {% for error in errors %}
+                            {% if error.propertyPath == 'email' %}
+                                <p class="text-red text-xs italic">{{ error.message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="font-bold text-grey-darker block mb-2">Password</label>
+                        <input type="password" name="password" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Your Password">
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <button class="bg-teal-dark hover:bg-teal text-white font-bold py-2 px-4 rounded">
+                            Create Account
+                        </button>
+
+                        <a href="{{ path('app_login') }}" class="no-underline inline-block align-baseline font-bold text-sm text-blue hover:text-blue-dark float-right">
+                            Login
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center">
+                <p class="text-grey-dark text-sm">Don't have an account? <a href="#" class="no-underline text-blue font-bold">Create an Account</a>.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
