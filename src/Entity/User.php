@@ -3,9 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -23,12 +23,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-	 * @Assert\Length(
-	 *      min = 2,
-	 *      max = 20,
-	 *      minMessage = "Your username must be at least {{ limit }} characters long",
-	 *      maxMessage = "Your username cannot be longer than {{ limit }} characters"
-	 * )
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "Your username must be at least {{ limit }} characters long",
+     *      maxMessage = "Your username cannot be longer than {{ limit }} characters"
+     * )
      */
     private $username;
 
@@ -45,7 +45,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
-	 * @Assert\Email
+     * @Assert\Email
      */
     private $email;
 
@@ -146,9 +146,10 @@ class User implements UserInterface
 
     public function getLastToken(): string
     {
-    	if($this->last_token === null) {
-    		$this->generateToken();
-		}
+        if ($this->last_token === null) {
+            $this->generateToken();
+        }
+
         return $this->last_token;
     }
 
@@ -159,11 +160,12 @@ class User implements UserInterface
         return $this;
     }
 
-	public function generateToken() : string
-         	{
-         		$this->last_token = uniqid('user_',false);
-         		return $this->last_token;
-         	}
+    public function generateToken() : string
+    {
+        $this->last_token = uniqid('user_', false);
+
+        return $this->last_token;
+    }
 
     public function getVerified(): bool
     {

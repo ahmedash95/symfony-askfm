@@ -1,5 +1,5 @@
 <?php
 
-/**
+/*
  * Global app helpers
  */
