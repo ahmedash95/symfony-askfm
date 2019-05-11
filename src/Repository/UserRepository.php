@@ -21,14 +21,14 @@ class UserRepository extends ServiceEntityRepository
 
     public function findByUserNameOrEmail($key) : ?User
     {
-        $result  = $this->createQueryBuilder('u')
+        $result = $this->createQueryBuilder('u')
             ->andWhere('u.username = :val')
             ->orWhere('u.username = :val')
             ->setParameter('val', $key)
             ->setMaxResults(1)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+
         return count($result) > 0 ? $result[0] : null;
     }
 }
