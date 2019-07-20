@@ -141,12 +141,15 @@ class Question
         return $this;
     }
 
-    public function getProperUser(){
-    	if($this->getIsAnonymous()){
-    		$user = new User();
-    		$user->setUsername('Anonymous');
-    		return $user;
-		}
-    	return $this->getUser();
-	}
+    public function getProperUser()
+    {
+        if ($this->getIsAnonymous()) {
+            $user = new User();
+            $user->setUsername('Anonymous');
+
+            return $user;
+        }
+
+        return $this->getUser();
+    }
 }

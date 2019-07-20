@@ -26,11 +26,13 @@ class SiteController extends AbstractController
         $entityManager->flush();
     }
 
-    public function getUser() : ?User {
-    	$token = $this->container->get('security.token_storage')->getToken();
-    	if($token) {
-    		return $token->getUser();
-		}
-    	return null;
-	}
+    public function getUser() : ?User
+    {
+        $token = $this->container->get('security.token_storage')->getToken();
+        if ($token) {
+            return $token->getUser();
+        }
+
+        return null;
+    }
 }

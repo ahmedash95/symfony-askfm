@@ -19,16 +19,18 @@ class QuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, Question::class);
     }
 
-    public function findNotAnsweredQuestions($where = []){
-    	$builder = $this->createQueryBuilder('q')
-			->where('q.answer IS NULL');
+    public function findNotAnsweredQuestions($where = [])
+    {
+        $builder = $this->createQueryBuilder('q')
+            ->where('q.answer IS NULL');
 
-    	foreach($where as $key => $value){
-			$builder->andWhere("q.{$key} = :{$key}")->setParameter($key,$value);
-		}
+        foreach ($where as $key => $value) {
+            $builder->andWhere("q.{$key} = :{$key}")->setParameter($key, $value);
+        }
 
-		return $builder->getQuery()->getResult();
-	}
+        return $builder->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Question[] Returns an array of Question objects
     //  */
