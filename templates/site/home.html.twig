@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="flex mb-4">
+        <div class="w-1/6 h-12"></div>
+        <div class="w-3/4 h-12">
+            <div class="mb-10"></div>
+            <div class="flex mb-4">
+                <div class="w-3/4 mr-5">
+                    {% for i in range(1,30) %}
+                        {% include 'compontents/question-answer.html.twig' %}
+                    {% endfor %}
+                </div>
+                <div class="w-1/3">
+                    {% include 'compontents/question-answer.html.twig' %}
+                </div>
+            </div>
+        </div>
+        <div class="w-1/6 h-12"></div>
+    </div>
+{% endblock %}

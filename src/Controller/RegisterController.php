@@ -62,7 +62,7 @@ class RegisterController extends SiteController
             ]);
         }
 
-        $this->entityManagerFlush($user);
+        $this->entityManagerPersist($user);
 
         $this->dispatchMessage(new UserRegister($user));
 
@@ -90,7 +90,7 @@ class RegisterController extends SiteController
         $user->setVerified(true);
         $user->generateToken();
 
-        $this->entityManagerFlush($user);
+        $this->entityManagerPersist($user);
 
         $this->addFlash('success', 'Your account has been activated!');
 

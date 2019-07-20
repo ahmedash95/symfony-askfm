@@ -12,7 +12,7 @@ class HomeController extends SiteController
      */
     public function index()
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('site/home.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }

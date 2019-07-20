@@ -31,6 +31,9 @@
                                 <a href="#" class="no-underline font-bold block mt-4 sm:inline-block sm:mt-0 text-grey-lighter hover:text-grey-light mr-4">
                                     Hello {{ app.user.username }}
                                 </a>
+                                    <a href="{{ path('user_questions') }}" class="no-underline font-bold block mt-4 sm:inline-block sm:mt-0 text-grey-lighter hover:text-grey-light mr-4">
+                                    Questions
+                                </a>
                                 <a href="{{ path('app_logout') }}" class="no-underline font-bold block mt-4 sm:inline-block sm:mt-0 text-grey-lighter hover:text-grey-light mr-4">
                                     Logout
                                 </a>
